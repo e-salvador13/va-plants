@@ -2,25 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Steve Jobs Design Philosophy:
+   "Design is not just what it looks like. Design is how it works."
+   - Clean typography, generous whitespace, purposeful color
+*/
+
 :root {
-  --forest-green: #228B22;
-  --leaf-green: #90EE90;
-  --earth-brown: #8B4513;
-  --sky-blue: #87CEEB;
-  --wetland-blue: #4682B4;
+  --forest: #1a4d1a;
+  --forest-light: #2d6a2d;
+  --sage: #7c9c7c;
+  --mist: #f4f7f4;
+  --stone: #374151;
+  --stone-light: #6b7280;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(180deg, #f8faf8 0%, #f0f4f0 100%);
+  min-height: 100vh;
 }
 
-/* Card flip animation */
+/* Card flip animation - smoother, more natural */
 .flip-card {
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 .flip-card-inner {
-  transition: transform 0.6s;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
 }
 
@@ -31,20 +48,98 @@ body {
 .flip-card-front,
 .flip-card-back {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
 }
 
-/* Smooth transitions */
-.card-enter {
-  opacity: 0;
-  transform: scale(0.9);
+/* Premium button transitions */
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.3s ease-out;
+button:active {
+  transform: scale(0.98);
+}
+
+/* Subtle hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Clean focus states */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Status badges with better contrast */
+.badge-obl { background: #1e40af; color: white; }
+.badge-facw { background: #0369a1; color: white; }
+.badge-fac { background: #15803d; color: white; }
+.badge-facu { background: #ca8a04; color: white; }
+.badge-upl { background: #c2410c; color: white; }
+
+/* Image loading state */
+.img-loading {
+  background: linear-gradient(110deg, #f0f0f0 8%, #fafafa 18%, #f0f0f0 33%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
 }

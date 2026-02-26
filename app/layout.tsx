@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'VA Plants - Flashcard Game',
+  title: 'VA Plants',
   description: 'Learn Virginia native plants and wetland indicator species',
 }
 
@@ -13,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-green-50 to-blue-50 min-h-screen">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
