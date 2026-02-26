@@ -53,6 +53,8 @@ const CheckIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
+const STORAGE_KEY = 'va-plants-progress';
+
 export default function Home() {
   const [mode, setMode] = useState<GameMode>('menu');
   const [category, setCategory] = useState('all');
@@ -61,6 +63,7 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [knownCards, setKnownCards] = useState<Set<string>>(new Set());
+  const [isHydrated, setIsHydrated] = useState(false);
   
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -68,9 +71,66 @@ export default function Home() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   
+  const [imageLoaded, setImageLoaded] = useState<Record<string, boolean>>({});
+  
+  // Load persisted progress on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.knownCards && Array.isArray(parsed.knownCards)) {
+          setKnownCards(new Set(parsed.knownCards));
+        }
+      }
+    } catch {
+      // Ignore localStorage errors
+    }
+    setIsHydrated(true);
+  }, []);
+  
+  // Persist progress on change
+  useEffect(() => {
+    if (!isHydrated) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        knownCards: Array.from(knownCards),
+      }));
+    } catch {
+      // Ignore localStorage errors
+    }
+  }, [knownCards, isHydrated]);
+  
   const filteredPlants = category === 'all' 
     ? plants 
     : plants.filter(p => p.category === category);
+  
+  // Fix index bounds when category changes
+  useEffect(() => {
+    if (currentIndex >= filteredPlants.length) {
+      setCurrentIndex(Math.max(0, filteredPlants.length - 1));
+    }
+    setIsFlipped(false);
+  }, [category, filteredPlants.length, currentIndex]);
+  
+  // Keyboard navigation for flashcards
+  useEffect(() => {
+    if (mode !== 'flashcard') return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        prevCard();
+      } else if (e.key === 'ArrowRight') {
+        nextCard();
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        setIsFlipped(f => !f);
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mode, filteredPlants.length, currentIndex]);
   
   const shuffle = <T,>(array: T[]): T[] => {
     const arr = [...array];
@@ -83,6 +143,8 @@ export default function Home() {
   
   const generateQuiz = useCallback(() => {
     const shuffledPlants = shuffle(filteredPlants).slice(0, 10);
+    const allStatuses = ['OBL', 'FACW', 'FAC', 'FACU', 'UPL'];
+    
     const newQuestions: QuizQuestion[] = shuffledPlants.map(plant => {
       const isNameQuestion = quizType === 'name' || (quizType === 'mixed' && Math.random() > 0.5);
       
@@ -91,8 +153,8 @@ export default function Home() {
         const options = shuffle([plant.scientificName, ...otherPlants.map(p => p.scientificName)]);
         return { plant, type: 'name' as const, options, correct: plant.scientificName };
       } else {
-        const statuses = ['OBL', 'FACW', 'FAC', 'FACU', 'UPL'];
-        const otherStatuses = statuses.filter(s => s !== plant.wetlandStatus).slice(0, 3);
+        // Fixed: ensure we get exactly 3 OTHER statuses
+        const otherStatuses = shuffle(allStatuses.filter(s => s !== plant.wetlandStatus)).slice(0, 3);
         const options = shuffle([plant.wetlandStatus, ...otherStatuses]);
         return { plant, type: 'wetland' as const, options, correct: plant.wetlandStatus };
       }
@@ -129,26 +191,28 @@ export default function Home() {
     }
   };
   
-  const nextCard = () => {
+  const nextCard = useCallback(() => {
     setIsFlipped(false);
     setTimeout(() => setCurrentIndex((i) => (i + 1) % filteredPlants.length), 150);
-  };
+  }, [filteredPlants.length]);
   
-  const prevCard = () => {
+  const prevCard = useCallback(() => {
     setIsFlipped(false);
     setTimeout(() => setCurrentIndex((i) => (i - 1 + filteredPlants.length) % filteredPlants.length), 150);
-  };
+  }, [filteredPlants.length]);
   
-  const markKnown = () => {
+  const toggleKnown = () => {
     const plant = filteredPlants[currentIndex];
-    setKnownCards(prev => new Set([...prev, plant.id]));
-    nextCard();
+    setKnownCards(prev => {
+      const next = new Set(prev);
+      if (next.has(plant.id)) {
+        next.delete(plant.id);
+      } else {
+        next.add(plant.id);
+      }
+      return next;
+    });
   };
-  
-  useEffect(() => {
-    setCurrentIndex(0);
-    setIsFlipped(false);
-  }, [category]);
   
   const currentPlant = filteredPlants[currentIndex];
   
@@ -162,6 +226,20 @@ export default function Home() {
     };
     return classes[status] || 'bg-gray-500 text-white';
   };
+  
+  const getCategoryEmoji = (id: string) => {
+    const cat = categories.find(c => c.id === id);
+    return cat?.emoji || '🌿';
+  };
+
+  // Don't render until hydrated to avoid flash
+  if (!isHydrated) {
+    return (
+      <main className="min-h-screen p-5 md:p-8 flex items-center justify-center">
+        <div className="animate-pulse text-gray-400">Loading...</div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen p-5 md:p-8">
@@ -202,13 +280,14 @@ export default function Home() {
                   <button
                     key={cat.id}
                     onClick={() => setCategory(cat.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-1.5 ${
                       category === cat.id
                         ? 'bg-emerald-600 text-white shadow-sm'
                         : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
                     }`}
                   >
-                    {cat.name}
+                    <span>{cat.emoji}</span>
+                    <span>{cat.name}</span>
                   </button>
                 ))}
               </div>
@@ -257,6 +336,14 @@ export default function Home() {
                       }`}>
                         {quizType === type && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                       </div>
+                      <input
+                        type="radio"
+                        name="quizType"
+                        value={type}
+                        checked={quizType === type}
+                        onChange={() => setQuizType(type)}
+                        className="sr-only"
+                      />
                       <span className="text-sm text-gray-700 capitalize">
                         {type === 'name' ? 'Scientific Names' : type === 'wetland' ? 'Wetland Status' : 'Mixed'}
                       </span>
@@ -275,7 +362,21 @@ export default function Home() {
             
             {/* Progress */}
             <section className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-              <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Progress</h3>
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide">Progress</h3>
+                {knownCards.size > 0 && (
+                  <button
+                    onClick={() => {
+                      if (confirm('Reset all progress?')) {
+                        setKnownCards(new Set());
+                      }
+                    }}
+                    className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
               <div className="flex items-center gap-4">
                 <div>
                   <div className="text-3xl font-bold text-emerald-600">{knownCards.size}</div>
@@ -313,33 +414,45 @@ export default function Home() {
         {/* FLASHCARD MODE */}
         {mode === 'flashcard' && currentPlant && (
           <div className="space-y-5 animate-fade-in">
-            {/* Progress */}
+            {/* Progress & Hints */}
             <div className="flex items-center justify-between text-sm">
               <span className="text-gray-500 tabular-nums">{currentIndex + 1} / {filteredPlants.length}</span>
-              {knownCards.has(currentPlant.id) && (
-                <span className="flex items-center gap-1.5 text-emerald-600 font-medium">
-                  <CheckIcon className="w-4 h-4" />
-                  Mastered
-                </span>
-              )}
+              <div className="flex items-center gap-3">
+                <span className="text-gray-400 text-xs hidden sm:inline">← → or tap to flip</span>
+                {knownCards.has(currentPlant.id) && (
+                  <span className="flex items-center gap-1.5 text-emerald-600 font-medium">
+                    <CheckIcon className="w-4 h-4" />
+                    Mastered
+                  </span>
+                )}
+              </div>
             </div>
             
             {/* Card */}
             <div 
-              className={`flip-card cursor-pointer ${isFlipped ? 'flipped' : ''}`}
-              onClick={() => setIsFlipped(!isFlipped)}
+              className={`flip-card ${isFlipped ? 'flipped' : ''}`}
               style={{ minHeight: '420px' }}
             >
               <div className="flip-card-inner relative w-full h-full">
                 {/* Front */}
-                <div className="flip-card-front absolute inset-0 bg-white rounded-2xl shadow-lg p-6 flex flex-col">
-                  <div className="flex-1 flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden mb-5">
+                <div 
+                  className="flip-card-front absolute inset-0 bg-white rounded-2xl shadow-lg p-6 flex flex-col cursor-pointer"
+                  onClick={() => setIsFlipped(true)}
+                >
+                  <div className="flex-1 flex items-center justify-center bg-gray-50 rounded-xl overflow-hidden mb-5 relative">
+                    {!imageLoaded[currentPlant.id] && (
+                      <div className="absolute inset-0 img-loading" />
+                    )}
                     <img 
                       src={currentPlant.imageUrl} 
                       alt={currentPlant.commonName}
-                      className="max-h-56 object-contain"
+                      className={`max-h-56 object-contain transition-opacity duration-300 ${
+                        imageLoaded[currentPlant.id] ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      onLoad={() => setImageLoaded(prev => ({ ...prev, [currentPlant.id]: true }))}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=🌿';
+                        setImageLoaded(prev => ({ ...prev, [currentPlant.id]: true }));
                       }}
                     />
                   </div>
@@ -350,42 +463,56 @@ export default function Home() {
                 </div>
                 
                 {/* Back */}
-                <div className="flip-card-back absolute inset-0 bg-white rounded-2xl shadow-lg p-6 overflow-y-auto">
-                  <div className="space-y-4">
-                    <div>
-                      <h2 className="text-2xl font-bold text-gray-900">{currentPlant.commonName}</h2>
-                      <p className="text-lg italic text-gray-500 mt-1">{currentPlant.scientificName}</p>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadgeClass(currentPlant.wetlandStatus)}`}>
-                        {currentPlant.wetlandStatus}
-                      </span>
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 capitalize">
-                        {currentPlant.category}
-                      </span>
-                      {currentPlant.native && (
-                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
-                          Native
+                <div className="flip-card-back absolute inset-0 bg-white rounded-2xl shadow-lg flex flex-col">
+                  <div 
+                    className="flex-1 p-6 overflow-y-auto"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="space-y-4">
+                      <div>
+                        <h2 className="text-2xl font-bold text-gray-900">{currentPlant.commonName}</h2>
+                        <p className="text-lg italic text-gray-500 mt-1">{currentPlant.scientificName}</p>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusBadgeClass(currentPlant.wetlandStatus)}`}>
+                          {currentPlant.wetlandStatus}
                         </span>
-                      )}
-                    </div>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed">{currentPlant.description}</p>
-                    
-                    <div className="bg-emerald-50 rounded-xl p-4">
-                      <p className="text-sm text-emerald-800">
-                        <span className="font-medium">Habitat:</span> {currentPlant.habitat}
-                      </p>
-                    </div>
-                    
-                    {currentPlant.funFact && (
-                      <div className="bg-amber-50 rounded-xl p-4">
-                        <p className="text-sm text-amber-800">
-                          <span className="font-medium">Fun Fact:</span> {currentPlant.funFact}
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600 capitalize flex items-center gap-1">
+                          <span>{getCategoryEmoji(currentPlant.category)}</span>
+                          {currentPlant.category}
+                        </span>
+                        {currentPlant.native && (
+                          <span className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700">
+                            Native
+                          </span>
+                        )}
+                      </div>
+                      
+                      <p className="text-gray-600 text-sm leading-relaxed">{currentPlant.description}</p>
+                      
+                      <div className="bg-emerald-50 rounded-xl p-4">
+                        <p className="text-sm text-emerald-800">
+                          <span className="font-medium">Habitat:</span> {currentPlant.habitat}
                         </p>
                       </div>
-                    )}
+                      
+                      {currentPlant.funFact && (
+                        <div className="bg-amber-50 rounded-xl p-4">
+                          <p className="text-sm text-amber-800">
+                            <span className="font-medium">Fun Fact:</span> {currentPlant.funFact}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Tap to flip back indicator */}
+                  <div 
+                    className="p-3 text-center border-t border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors"
+                    onClick={() => setIsFlipped(false)}
+                  >
+                    <p className="text-gray-400 text-xs">Tap here to flip back</p>
                   </div>
                 </div>
               </div>
@@ -396,24 +523,26 @@ export default function Home() {
               <button
                 onClick={prevCard}
                 className="w-12 h-12 rounded-full bg-white shadow-sm border border-gray-200 hover:bg-gray-50 flex items-center justify-center transition-colors"
+                aria-label="Previous card"
               >
                 <ChevronLeft className="w-5 h-5 text-gray-600" />
               </button>
               
               <button
-                onClick={markKnown}
+                onClick={toggleKnown}
                 className={`px-6 py-3 rounded-xl font-medium text-sm transition-all ${
                   knownCards.has(currentPlant.id)
-                    ? 'bg-emerald-50 text-emerald-700'
+                    ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                     : 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm'
                 }`}
               >
-                {knownCards.has(currentPlant.id) ? 'Mastered' : 'Mark as Known'}
+                {knownCards.has(currentPlant.id) ? '✓ Mastered' : 'Mark as Known'}
               </button>
               
               <button
                 onClick={nextCard}
                 className="w-12 h-12 rounded-full bg-white shadow-sm border border-gray-200 hover:bg-gray-50 flex items-center justify-center transition-colors"
+                aria-label="Next card"
               >
                 <ChevronRight className="w-5 h-5 text-gray-600" />
               </button>
@@ -443,13 +572,20 @@ export default function Home() {
             
             {/* Question Card */}
             <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex justify-center mb-5">
+              <div className="flex justify-center mb-5 relative bg-gray-50 rounded-xl p-4">
+                {!imageLoaded[questions[currentQuestion].plant.id] && (
+                  <div className="absolute inset-0 img-loading rounded-xl" />
+                )}
                 <img 
                   src={questions[currentQuestion].plant.imageUrl}
                   alt="Plant"
-                  className="max-h-44 rounded-xl object-contain"
+                  className={`max-h-40 sm:max-h-44 rounded-xl object-contain transition-opacity duration-300 ${
+                    imageLoaded[questions[currentQuestion].plant.id] ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setImageLoaded(prev => ({ ...prev, [questions[currentQuestion].plant.id]: true }))}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=🌿';
+                    setImageLoaded(prev => ({ ...prev, [questions[currentQuestion].plant.id]: true }));
                   }}
                 />
               </div>

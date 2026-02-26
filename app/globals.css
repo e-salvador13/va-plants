@@ -39,6 +39,7 @@ body {
 .flip-card-inner {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  min-height: 420px;
 }
 
 .flip-card.flipped .flip-card-inner {
@@ -49,10 +50,17 @@ body {
 .flip-card-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  min-height: 420px;
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+/* Ensure back content scrolls properly */
+.flip-card-back > div:first-child {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
 }
 
 /* Premium button transitions */
