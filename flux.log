@@ -6,3 +6,212 @@ Started at: Thu Feb 26 11:08:48 EST 2026
 → Generating sweetgum...
 Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 20610.83it/s]
 Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 49344.75it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.34s/it]100%|██████████| 2/2 [02:03<00:00, 68.81s/it]100%|██████████| 2/2 [02:03<00:00, 61.99s/it]
+  ✓ Done: sweetgum (272K)
+→ Generating bald-cypress...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 28581.29it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 46091.25it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.90s/it]100%|██████████| 2/2 [01:51<00:00, 61.50s/it]100%|██████████| 2/2 [01:51<00:00, 55.86s/it]
+  ✓ Done: bald-cypress (324K)
+→ Generating river-birch...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 42048.16it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 55553.70it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.72s/it]100%|██████████| 2/2 [01:53<00:00, 62.99s/it]100%|██████████| 2/2 [01:53<00:00, 56.80s/it]
+  ✓ Done: river-birch (276K)
+→ Generating willow-oak...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 20485.00it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 125203.10it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.79s/it]100%|██████████| 2/2 [01:53<00:00, 63.04s/it]100%|██████████| 2/2 [01:53<00:00, 56.85s/it]
+  ✓ Done: willow-oak (312K)
+→ Generating green-ash...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 20020.54it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 86480.49it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.68s/it]100%|██████████| 2/2 [01:56<00:00, 64.53s/it]100%|██████████| 2/2 [01:56<00:00, 58.25s/it]
+  ✓ Done: green-ash (376K)
+→ Generating sycamore...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 9414.82it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 5509.76it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.06s/it]100%|██████████| 2/2 [01:52<00:00, 62.24s/it]100%|██████████| 2/2 [01:52<00:00, 56.22s/it]
+  ✓ Done: sycamore (364K)
+→ Generating black-gum...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 16008.79it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 44384.17it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.70s/it]100%|██████████| 2/2 [01:49<00:00, 60.40s/it]100%|██████████| 2/2 [01:49<00:00, 54.74s/it]
+  ✓ Done: black-gum (356K)
+→ Generating swamp-white-oak...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 11732.32it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 102927.71it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.19s/it]100%|██████████| 2/2 [01:51<00:00, 61.90s/it]100%|██████████| 2/2 [01:51<00:00, 55.95s/it]
+  ✓ Done: swamp-white-oak (276K)
+→ Generating buttonbush...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 23967.45it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 51306.47it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.98s/it]100%|██████████| 2/2 [01:55<00:00, 63.79s/it]100%|██████████| 2/2 [01:55<00:00, 57.67s/it]
+  ✓ Done: buttonbush (320K)
+→ Generating silky-dogwood...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 55553.70it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 63550.06it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.18s/it]100%|██████████| 2/2 [01:53<00:00, 62.94s/it]100%|██████████| 2/2 [01:53<00:00, 56.83s/it]
+  ✓ Done: silky-dogwood (264K)
+→ Generating spicebush...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 34735.44it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 121574.03it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.18s/it]100%|██████████| 2/2 [01:55<00:00, 63.75s/it]100%|██████████| 2/2 [01:55<00:00, 57.51s/it]
+  ✓ Done: spicebush (280K)
+→ Generating elderberry...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 39107.73it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 44979.13it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.90s/it]100%|██████████| 2/2 [02:01<00:00, 67.64s/it]100%|██████████| 2/2 [02:01<00:00, 60.93s/it]
+  ✓ Done: elderberry (356K)
+→ Generating highbush-blueberry...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 17367.72it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 105517.08it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:24<00:24, 24.28s/it]100%|██████████| 2/2 [01:50<00:00, 60.85s/it]100%|██████████| 2/2 [01:50<00:00, 55.36s/it]
+  ✓ Done: highbush-blueberry (300K)
+→ Generating winterberry...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 13888.42it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 49344.75it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.97s/it]100%|██████████| 2/2 [01:55<00:00, 64.23s/it]100%|██████████| 2/2 [01:55<00:00, 57.89s/it]
+  ✓ Done: winterberry (296K)
+→ Generating swamp-rose...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 69042.04it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 61680.94it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.96s/it]100%|██████████| 2/2 [01:48<00:00, 59.83s/it]100%|██████████| 2/2 [01:48<00:00, 54.45s/it]
+  ✓ Done: swamp-rose (284K)
+→ Generating cardinal-flower...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 55553.70it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 48770.98it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.12s/it]100%|██████████| 2/2 [01:51<00:00, 61.42s/it]100%|██████████| 2/2 [01:51<00:00, 55.52s/it]
+  ✓ Done: cardinal-flower (284K)
+→ Generating blue-flag-iris...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 18703.70it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 93206.76it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.59s/it]100%|██████████| 2/2 [01:48<00:00, 59.65s/it]100%|██████████| 2/2 [01:48<00:00, 54.09s/it]
+  ✓ Done: blue-flag-iris (280K)
+→ Generating joe-pye-weed...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 38746.46it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 26843.55it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.87s/it]100%|██████████| 2/2 [01:54<00:00, 63.29s/it]100%|██████████| 2/2 [01:54<00:00, 57.08s/it]
+  ✓ Done: joe-pye-weed (216K)
+→ Generating boneset...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 16611.10it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 31956.60it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.59s/it]100%|██████████| 2/2 [01:52<00:00, 62.20s/it]100%|██████████| 2/2 [01:52<00:00, 56.11s/it]
+  ✓ Done: boneset (264K)
+→ Generating swamp-milkweed...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 14351.77it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 59705.40it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.88s/it]100%|██████████| 2/2 [01:54<00:00, 63.48s/it]100%|██████████| 2/2 [01:54<00:00, 57.24s/it]
+  ✓ Done: swamp-milkweed (272K)
+→ Generating skunk-cabbage...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 39199.10it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 53261.00it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.87s/it]100%|██████████| 2/2 [01:53<00:00, 62.82s/it]100%|██████████| 2/2 [01:53<00:00, 56.83s/it]
+  ✓ Done: skunk-cabbage (320K)
+→ Generating pickerelweed...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 74235.47it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 32263.88it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.46s/it]100%|██████████| 2/2 [01:50<00:00, 60.65s/it]100%|██████████| 2/2 [01:50<00:00, 55.07s/it]
+  ✓ Done: pickerelweed (320K)
+→ Generating arrow-arum...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 15155.57it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 24420.98it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.51s/it]100%|██████████| 2/2 [01:49<00:00, 60.14s/it]100%|██████████| 2/2 [01:49<00:00, 54.65s/it]
+  ✓ Done: arrow-arum (256K)
+→ Generating lizards-tail...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 49932.19it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 27776.85it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.67s/it]100%|██████████| 2/2 [01:59<00:00, 66.01s/it]100%|██████████| 2/2 [01:59<00:00, 59.51s/it]
+  ✓ Done: lizards-tail (192K)
+→ Generating jewelweed...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 30120.68it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 28581.29it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.98s/it]100%|██████████| 2/2 [01:52<00:00, 62.24s/it]100%|██████████| 2/2 [01:52<00:00, 56.35s/it]
+  ✓ Done: jewelweed (240K)
+→ Generating soft-rush...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 17154.62it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 50686.45it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:24<00:24, 24.54s/it]100%|██████████| 2/2 [01:48<00:00, 59.68s/it]100%|██████████| 2/2 [01:48<00:00, 54.41s/it]
+  ✓ Done: soft-rush (336K)
+→ Generating woolgrass...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 19395.63it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 40820.48it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.58s/it]100%|██████████| 2/2 [01:54<00:00, 63.61s/it]100%|██████████| 2/2 [01:54<00:00, 57.31s/it]
+  ✓ Done: woolgrass (196K)
+→ Generating switchgrass...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 12157.40it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 15694.31it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.70s/it]100%|██████████| 2/2 [01:55<00:00, 63.91s/it]100%|██████████| 2/2 [01:55<00:00, 57.58s/it]
+  ✓ Done: switchgrass (232K)
+→ Generating sedge-carex...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 14193.92it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 41734.37it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.08s/it]100%|██████████| 2/2 [01:55<00:00, 64.11s/it]100%|██████████| 2/2 [01:55<00:00, 57.81s/it]
+  ✓ Done: sedge-carex (240K)
+→ Generating cinnamon-fern...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 39568.91it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 81049.35it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:22<00:22, 22.28s/it]100%|██████████| 2/2 [01:52<00:00, 62.23s/it]100%|██████████| 2/2 [01:52<00:00, 56.24s/it]
+  ✓ Done: cinnamon-fern (260K)
+→ Generating royal-fern...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 22221.48it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 46474.28it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:24<00:24, 24.81s/it]100%|██████████| 2/2 [01:50<00:00, 60.61s/it]100%|██████████| 2/2 [01:50<00:00, 55.24s/it]
+  ✓ Done: royal-fern (324K)
+→ Generating sensitive-fern...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 14703.96it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 27235.74it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.97s/it]100%|██████████| 2/2 [01:53<00:00, 63.17s/it]100%|██████████| 2/2 [01:53<00:00, 56.99s/it]
+  ✓ Done: sensitive-fern (208K)
+→ Generating virginia-creeper...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 67923.95it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 43464.29it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:23<00:23, 23.76s/it]100%|██████████| 2/2 [01:49<00:00, 60.24s/it]100%|██████████| 2/2 [01:49<00:00, 54.77s/it]
+  ✓ Done: virginia-creeper (312K)
+→ Generating trumpet-creeper...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 23109.11it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 22339.83it/s]
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:21<00:21, 21.93s/it]100%|██████████| 2/2 [01:55<00:00, 64.05s/it]100%|██████████| 2/2 [01:55<00:00, 57.73s/it]
+  ✓ Done: trumpet-creeper (268K)
+
+Completed at: Thu Feb 26 12:17:36 EST 2026
+Generated images:
+total 20104
+drwxr-xr-x  38 eduardosalvador  staff    1216 Feb 26 12:17 .
+drwxr-xr-x   3 eduardosalvador  staff      96 Feb 26 10:57 ..
+-rw-r--r--   1 eduardosalvador  staff  261902 Feb 26 11:55 arrow-arum.png
+-rw-r--r--   1 eduardosalvador  staff  327941 Feb 26 11:12 bald-cypress.png
+-rw-r--r--   1 eduardosalvador  staff  361609 Feb 26 11:23 black-gum.png
+-rw-r--r--   1 eduardosalvador  staff  283285 Feb 26 11:43 blue-flag-iris.png
+-rw-r--r--   1 eduardosalvador  staff  267840 Feb 26 11:47 boneset.png
+-rw-r--r--   1 eduardosalvador  staff  327451 Feb 26 11:27 buttonbush.png
+-rw-r--r--   1 eduardosalvador  staff  288303 Feb 26 11:41 cardinal-flower.png
+-rw-r--r--   1 eduardosalvador  staff  266102 Feb 26 12:09 cinnamon-fern.png
+-rw-r--r--   1 eduardosalvador  staff  363442 Feb 26 11:33 elderberry.png
+-rw-r--r--   1 eduardosalvador  staff  383170 Feb 26 11:19 green-ash.png
+-rw-r--r--   1 eduardosalvador  staff  306767 Feb 26 11:35 highbush-blueberry.png
+-rw-r--r--   1 eduardosalvador  staff  243210 Feb 26 11:59 jewelweed.png
+-rw-r--r--   1 eduardosalvador  staff  217386 Feb 26 11:45 joe-pye-weed.png
+-rw-r--r--   1 eduardosalvador  staff  194474 Feb 26 11:57 lizards-tail.png
+-rw-r--r--   1 eduardosalvador  staff  324457 Feb 26 11:53 pickerelweed.png
+-rw-r--r--   1 eduardosalvador  staff   82038 Feb 26 11:04 red-maple.png
+-rw-r--r--   1 eduardosalvador  staff  280872 Feb 26 11:15 river-birch.png
+-rw-r--r--   1 eduardosalvador  staff  329471 Feb 26 12:11 royal-fern.png
+-rw-r--r--   1 eduardosalvador  staff  242054 Feb 26 12:07 sedge-carex.png
+-rw-r--r--   1 eduardosalvador  staff  209868 Feb 26 12:13 sensitive-fern.png
+-rw-r--r--   1 eduardosalvador  staff  268818 Feb 26 11:29 silky-dogwood.png
+-rw-r--r--   1 eduardosalvador  staff  323649 Feb 26 11:51 skunk-cabbage.png
+-rw-r--r--   1 eduardosalvador  staff  342636 Feb 26 12:01 soft-rush.png
+-rw-r--r--   1 eduardosalvador  staff  282715 Feb 26 11:31 spicebush.png
+-rw-r--r--   1 eduardosalvador  staff  275447 Feb 26 11:49 swamp-milkweed.png
+-rw-r--r--   1 eduardosalvador  staff  288043 Feb 26 11:39 swamp-rose.png
+-rw-r--r--   1 eduardosalvador  staff  282030 Feb 26 11:25 swamp-white-oak.png
+-rw-r--r--   1 eduardosalvador  staff  277155 Feb 26 11:10 sweetgum.png
+-rw-r--r--   1 eduardosalvador  staff  237566 Feb 26 12:05 switchgrass.png
+-rw-r--r--   1 eduardosalvador  staff  370022 Feb 26 11:21 sycamore.png
+-rw-r--r--   1 eduardosalvador  staff  273107 Feb 26 12:17 trumpet-creeper.png
+-rw-r--r--   1 eduardosalvador  staff  297198 Feb 26 11:06 tulip-poplar.png
+-rw-r--r--   1 eduardosalvador  staff  315640 Feb 26 12:15 virginia-creeper.png
+-rw-r--r--   1 eduardosalvador  staff  317005 Feb 26 11:17 willow-oak.png
+-rw-r--r--   1 eduardosalvador  staff  301132 Feb 26 11:37 winterberry.png
+-rw-r--r--   1 eduardosalvador  staff  199889 Feb 26 12:03 woolgrass.png

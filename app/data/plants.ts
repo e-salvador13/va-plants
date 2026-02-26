@@ -17,6 +17,8 @@ export function getPlantImageUrl(plant: Plant): string {
   return `/plants/${plant.id}.png`;
 }
 
+import additionalPlants from './plants-expanded';
+
 // Wetland Indicator Status:
 // OBL = Obligate Wetland (>99% in wetlands)
 // FACW = Facultative Wetland (67-99% in wetlands)
@@ -25,7 +27,7 @@ export function getPlantImageUrl(plant: Plant): string {
 // UPL = Upland (<1% in wetlands)
 // NI = No Indicator status
 
-export const plants: Plant[] = [
+const basePlants: Plant[] = [
   // TREES
   {
     id: 'red-maple',
@@ -469,6 +471,15 @@ export const plants: Plant[] = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Campsis_radicans.jpg/440px-Campsis_radicans.jpg',
     funFact: 'Can become aggressive and damage structures'
   },
+];
+
+// Merge base plants with additional plants
+export const plants: Plant[] = [
+  ...basePlants,
+  ...additionalPlants.map(p => ({
+    ...p,
+    imageUrl: `/plants/${p.id}.png`,
+  })) as Plant[],
 ];
 
 export const wetlandStatusDescriptions: Record<string, string> = {
