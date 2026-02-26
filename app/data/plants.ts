@@ -11,6 +11,12 @@ export interface Plant {
   funFact?: string;
 }
 
+// Helper to get local image path with fallback
+export function getPlantImageUrl(plant: Plant): string {
+  // Use local Flux-generated images (stored in /plants/{id}.png)
+  return `/plants/${plant.id}.png`;
+}
+
 // Wetland Indicator Status:
 // OBL = Obligate Wetland (>99% in wetlands)
 // FACW = Facultative Wetland (67-99% in wetlands)

@@ -1,0 +1,8 @@
+Starting batch generation of 36 plant images...
+Started at: Thu Feb 26 11:08:48 EST 2026
+
+✓ Skipping red-maple (exists)
+✓ Skipping tulip-poplar (exists)
+→ Generating sweetgum...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 20610.83it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files: 100%|██████████| 4/4 [00:00<00:00, 49344.75it/s]

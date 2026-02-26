@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { plants, categories, wetlandStatusDescriptions, Plant } from './data/plants';
+import { plants, categories, wetlandStatusDescriptions, Plant, getPlantImageUrl } from './data/plants';
 
 type GameMode = 'menu' | 'flashcard' | 'quiz' | 'results';
 type QuizType = 'name' | 'wetland' | 'mixed';
@@ -444,7 +444,7 @@ export default function Home() {
                       <div className="absolute inset-0 img-loading" />
                     )}
                     <img 
-                      src={currentPlant.imageUrl} 
+                      src={getPlantImageUrl(currentPlant)} 
                       alt={currentPlant.commonName}
                       className={`max-h-56 object-contain transition-opacity duration-300 ${
                         imageLoaded[currentPlant.id] ? 'opacity-100' : 'opacity-0'
@@ -577,7 +577,7 @@ export default function Home() {
                   <div className="absolute inset-0 img-loading rounded-xl" />
                 )}
                 <img 
-                  src={questions[currentQuestion].plant.imageUrl}
+                  src={getPlantImageUrl(questions[currentQuestion].plant)}
                   alt="Plant"
                   className={`max-h-40 sm:max-h-44 rounded-xl object-contain transition-opacity duration-300 ${
                     imageLoaded[questions[currentQuestion].plant.id] ? 'opacity-100' : 'opacity-0'
